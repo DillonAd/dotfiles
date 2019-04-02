@@ -2,7 +2,7 @@
 
 # Update pkg lists
 echo "Updating package lists..."
-sudo apt-get update
+sudo apt update
 
 # zsh install
 which zsh > /dev/null 2>&1
@@ -59,12 +59,6 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
-# powerlevel9k install
-echo ''
-echo "Now installing powerlevel9k..."
-echo ''
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
 # vimrc vundle install
 echo ''
 echo "Now installing vundle..."
@@ -114,28 +108,28 @@ mv dircolors.256dark .dircolors
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use jldeen's dotfiles? y/n" -n 1 -r
+read -p "Do you want to use DillonAd's dotfiles? y/n" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo ''
-	echo "Now pulling down jldeen dotfiles..."
-	git clone https://github.com/jldeen/dotfiles.git ~/.dotfiles
+	echo "Now pulling down DillonAd's dotfiles..."
+	git clone https://github.com/DillonAd/dotfiles.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
-	echo "Checking out wsl branch..." && git checkout wsl
+	echo "Checking out master..." && git checkout master
 	echo ''
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's dotfiles..."
+        echo "Successfully configured your environment with DillonAd's dotfiles..."
     else
-        echo "jldeen's dotfiles were not applied successfully..." >&2
+        echo "DillonAd's dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply DillonAd's dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''
@@ -192,4 +186,4 @@ else
 fi
 
 echo ''
-echo '	Badass WSL terminal installed! Please reboot your computer for changes to be made.'
+echo '	Badass terminal installed! Please reboot your computer for changes to be made.'
