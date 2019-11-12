@@ -1,0 +1,7 @@
+#!/bin/sh
+
+printf "\n$(fortune)\n\n"
+
+# printf "$(alias chuck)"
+# printf "$(alias chuck_cow)"
+# printf "$(chuck)"

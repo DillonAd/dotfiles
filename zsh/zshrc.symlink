@@ -10,7 +10,7 @@ export TERM=screen-256color
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_MODE="nerdfont-complete"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="gnzh"
 
 # POWERLEVEL9K_IP_INTERFACE='en0'
 # POWERLEVEL9K_PUBLIC_IP_HOST='http://ident.me'
@@ -97,7 +97,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo git history taskwarrior tmux tmuxinator zsh-autosuggestions ssh-agent)
+plugins=(sudo git history taskwarrior tmux tmuxinator zsh-autosuggestions ssh-agent chucknorris npm)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_wakizashi id_github id_lynnco
@@ -124,7 +124,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/id_github"
+export SSH_KEY_PATH="~/.ssh/id_github;~/.ssh/id_wakizashi"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -145,3 +145,7 @@ export PATH=$PATH:~/bin
 
 eval $(thefuck --alias)
 
+for f in ~/.dotfiles/zsh/motd/*
+do
+  tmux -c $f
+done
