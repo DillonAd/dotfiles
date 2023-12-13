@@ -1,1 +1,3 @@
 *.dmg
+*.lock.*
+.DS_Store
